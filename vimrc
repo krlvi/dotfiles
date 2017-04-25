@@ -9,6 +9,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'wincent/command-t'
+Plug 'Valloric/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()
@@ -74,6 +76,8 @@ set hlsearch
 set pastetoggle=<F2>
 
 set t_Co=256
+
+set guifont=Source\ Code\ Pro:h15
 
 " Syntax highlighting and theme 
 syntax enable
