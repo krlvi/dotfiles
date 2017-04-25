@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Initialize plugin system
 call plug#end()
