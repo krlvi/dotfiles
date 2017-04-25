@@ -7,6 +7,7 @@ call vundle#begin()
 " Vundle plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -16,8 +17,16 @@ filetype plugin indent on    " required
 " Improve performance
 set lazyredraw
 set ttyfast
- 
-" For extra security plus im not using modelines
+set ttimeoutlen=10
+" make Esc happen without waiting for timeoutlen
+" fixes Powerline delay
+augroup FastEscape
+  autocmd!
+  au InsertEnter * set timeoutlen=0
+  au InsertLeave * set timeoutlen=1000
+augroup END
+
+" Extra security plus im not using modelines
 set modelines=0
 
 " Tabs the way i want them
@@ -62,6 +71,8 @@ set showmatch
 set hlsearch
 
 set pastetoggle=<F2>
+
+set t_Co=256
 
 " Syntax highlighting and theme 
 syntax enable
