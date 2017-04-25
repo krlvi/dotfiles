@@ -62,5 +62,6 @@ set hlsearch
 
 " Syntax highlighting and theme 
 syntax enable
+highlight LineNr ctermfg=blue
 "set background=light
 "colorscheme solarized
