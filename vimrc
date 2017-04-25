@@ -61,6 +61,8 @@ set incsearch
 set showmatch
 set hlsearch
 
+set pastetoggle=<F2>
+
 " Syntax highlighting and theme 
 syntax enable
 highlight LineNr ctermfg=blue
