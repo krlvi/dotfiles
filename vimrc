@@ -18,7 +18,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-Plug 'Valloric/YouCompleteMe'
+Plug 'ajh17/VimCompletesMe'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   nnoremap <silent> <leader>ff :Files<CR>
