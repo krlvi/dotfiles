@@ -1,16 +1,25 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
+let mapleader = "\<Space>"
+
 " Make sure you use single quotes
-Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-Plug 'wincent/command-t'
 Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+  nnoremap <silent> <leader>ff :Files<CR>
+  nnoremap <silent> <leader>fb :Buffers<CR>
+  nnoremap <silent> <leader>fl :BLines<CR>
+  nnoremap <silent> <leader>fL :Lines<CR>
+  nnoremap <silent> <leader>fc :BCommits<CR>
+  nnoremap <silent> <leader>fC :Commits<CR>
+  nnoremap <silent> <leader>fh :History<CR>
 
 " Initialize plugin system
 call plug#end()
