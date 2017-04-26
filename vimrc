@@ -9,7 +9,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 Plug 'ap/vim-buftabline'
+  :hi TabLineFill ctermfg=LightGray
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'vim-ruby/vim-ruby'
