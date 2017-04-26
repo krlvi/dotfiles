@@ -90,6 +90,9 @@ set incsearch
 set showmatch
 set hlsearch
 
+set splitbelow
+set splitright
+
 set pastetoggle=<F2>
 
 map <C-h> <C-w>h
@@ -98,6 +101,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
+nnoremap <C-h> :split<CR>
+nnoremap <C-v> :vsplit<CR>
+nnoremap <C-c> :close<CR>
 
 set t_Co=256
 
