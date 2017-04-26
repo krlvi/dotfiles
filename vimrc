@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 let mapleader = "\<Space>"
 
 " Make sure you use single quotes
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
