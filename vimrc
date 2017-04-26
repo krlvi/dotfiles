@@ -5,7 +5,9 @@ let mapleader = "\<Space>"
 
 " Make sure you use single quotes
 Plug 'scrooloose/nerdtree'
+  nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
