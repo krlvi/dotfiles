@@ -87,6 +87,13 @@ set hlsearch
 
 set pastetoggle=<F2>
 
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
 set t_Co=256
 
 set guifont=Source\ Code\ Pro:h15
