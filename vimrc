@@ -102,9 +102,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
-nnoremap <C-h> :split<CR>
-nnoremap <C-v> :vsplit<CR>
-nnoremap <C-c> :close<CR>
+nnoremap <silent> <leader>s :split<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>w :close<CR>
 
 set t_Co=256
 
