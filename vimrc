@@ -22,13 +22,13 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-  nnoremap <silent> <leader>ff :Files<CR>
-  nnoremap <silent> <leader>fb :Buffers<CR>
-  nnoremap <silent> <leader>fl :BLines<CR>
-  nnoremap <silent> <leader>fL :Lines<CR>
-  nnoremap <silent> <leader>fc :BCommits<CR>
-  nnoremap <silent> <leader>fC :Commits<CR>
-  nnoremap <silent> <leader>fh :History<CR>
+  nnoremap <silent> <leader>f :Files<CR>
+  nnoremap <silent> <leader>b :Buffers<CR>
+  nnoremap <silent> <leader>l :BLines<CR>
+  nnoremap <silent> <leader>L :Lines<CR>
+  nnoremap <silent> <leader>c :BCommits<CR>
+  nnoremap <silent> <leader>C :Commits<CR>
+  nnoremap <silent> <leader>h :History<CR>
 
 " Initialize plugin system
 call plug#end()
