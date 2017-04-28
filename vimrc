@@ -100,11 +100,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
-nnoremap <silent> <leader>s :split<CR>
-nnoremap <silent> <leader>v :vsplit<CR>
-nnoremap <silent> <leader>w :close<CR>
+nnoremap <C-Left> :bprevious<CR>
+nnoremap <C-Right> :bnext<CR>
 
 set t_Co=256
 
