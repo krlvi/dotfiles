@@ -103,6 +103,10 @@ map <C-l> <C-w>l
 nnoremap <C-Left> :bprevious<CR>
 nnoremap <C-Right> :bnext<CR>
 
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
+
 set t_Co=256
 
 set guifont=Source\ Code\ Pro:h15
