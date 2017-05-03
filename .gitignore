@@ -1,3 +1,4 @@
 *.un~
 *.swap
 vim/plugged
+vim/.netrwhist
