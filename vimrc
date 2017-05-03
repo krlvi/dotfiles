@@ -96,16 +96,15 @@ set splitright
 
 set pastetoggle=<F2>
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
 nnoremap <C-Left> :bprevious<CR>
 nnoremap <C-Right> :bnext<CR>
-
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-endif
+nnoremap <C-h> :bprevious<CR>
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-d> :bdelete<CR>
 
 set t_Co=256
 
