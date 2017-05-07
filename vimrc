@@ -72,7 +72,6 @@ au FocusLost * :wa
 nnoremap <leader>l :ls<CR>:b<space>
 
 " Directory setup
-set autochdir
 set directory=/tmp
 set backupdir=/tmp
 
