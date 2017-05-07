@@ -69,6 +69,11 @@ set hidden
 " Save file on change of focus
 au FocusLost * :wa
 
+" Directory setup
+set autochdir
+set directory=/tmp
+set backupdir=/tmp
+
 " Tab completion of commands
 set wildmenu
 set wildmode=full
