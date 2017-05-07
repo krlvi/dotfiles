@@ -1,0 +1,6 @@
+[core]
+	autocrlf = input
+	editor = vim
+[user]
+	name = Kiril Videlov
+	email = kiril.vi@runbox.no
