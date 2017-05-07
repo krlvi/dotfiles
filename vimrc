@@ -21,15 +21,16 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-  nnoremap <silent> <leader>f :Files<CR>
-  nnoremap <silent> <leader>b :Buffers<CR>
-  nnoremap <silent> <leader>l :BLines<CR>
-  nnoremap <silent> <leader>L :Lines<CR>
-  nnoremap <silent> <leader>c :BCommits<CR>
-  nnoremap <silent> <leader>C :Commits<CR>
-  nnoremap <silent> <leader>h :History<CR>
+Plug 'kien/ctrlp.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
+  "nnoremap <silent> <leader>f :Files<CR>
+  "nnoremap <silent> <leader>b :Buffers<CR>
+  "nnoremap <silent> <leader>l :BLines<CR>
+  "nnoremap <silent> <leader>L :Lines<CR>
+  "nnoremap <silent> <leader>c :BCommits<CR>
+  "nnoremap <silent> <leader>C :Commits<CR>
+  "nnoremap <silent> <leader>h :History<CR>
 
 " Initialize plugin system
 call plug#end()
@@ -68,6 +69,9 @@ set showcmd
 set hidden
 " Save file on change of focus
 au FocusLost * :wa
+
+" Buffer navigation
+nnoremap <leader>l :ls<CR>:b<space>
 
 " Directory setup
 set autochdir
