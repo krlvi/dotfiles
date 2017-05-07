@@ -82,7 +82,6 @@ set backspace=indent,eol,start
 set laststatus=2
 " Relative line lumbers
 set relativenumber
-set undofile
 
 " Search replace customizations
 set ignorecase
