@@ -5,6 +5,7 @@ let mapleader = "\<Space>"
 
 " Make sure you use single quotes
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
@@ -20,7 +21,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   nnoremap <silent> <leader>f :Files<CR>
