@@ -89,7 +89,7 @@ set hlsearch
 " ===== Look and feel =====
 set t_Co=256
 set number
-set cursorline
+"set cursorline
 set ruler
 set scrolloff=3
 highlight LineNr ctermfg=gray
