@@ -5,3 +5,5 @@
 	name = Kiril Videlov
 	email = kiril.vi@runbox.no
 	signingkey = 5427C471
+[commit]
+	gpgsign = true
