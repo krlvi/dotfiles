@@ -41,6 +41,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+  let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
 
 call plug#end()
 
