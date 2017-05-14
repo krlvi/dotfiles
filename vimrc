@@ -96,6 +96,9 @@ highlight LineNr ctermfg=gray
 "set background=light
 syntax enable
 set guifont=Source\ Code\ Pro:h14
+if has("gui_running")
+  colorscheme solarized8_light_high
+endif
 
 " ===== Key bindings =====
 " Buffer navigation
