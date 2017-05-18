@@ -1,9 +1,7 @@
 " ===== LEADER KEY =====
 let mapleader = "\<Space>"
 " ===== PLUGINS =====
-call plug#begin('~/.vim/plugged')
-
-" --- Git ---
+call plug#begin('~/.vim/plugged') " --- Git ---
 Plug 'tpope/vim-fugitive'
 
 " --- Language specific ---
@@ -11,7 +9,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+  let g:rails_ctags_arguments = ['$(bundle list --paths)']
   nnoremap <leader>r :Rake<CR>
+  nnoremap t <C-]>
 
 " --- Look and feel ---
 Plug 'Yggdroot/indentLine'
@@ -42,6 +42,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
+Plug 'wojtekmach/vim-rename'
 
 call plug#end()
 
@@ -70,6 +71,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set cc=80
 
 " ===== WILD MODE =====
 set wildmenu
@@ -78,6 +80,8 @@ set wildmode=longest:full,full
 " Save all files on losing focus
 au FocusLost * :wa
 autocmd BufLeave,FocusLost * silent! wall
+autocmd FileType c,cpp,java,php,rb,ex,exs,rbs,rake autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd BufWritePre *.rb %s/\s\+$//e
 
 " ===== SEARCH AND REPLACE =====
 set ignorecase
@@ -110,5 +114,6 @@ nnoremap <leader>cd :cd %:p:h<CR>
 nnoremap <leader>n :lnext<CR>
 nnoremap <leader>p :lprevious<CR>
 nnoremap <leader>x :lclose<CR>
+nnoremap <leader>w <C-w>p
 " Other
 set pastetoggle=<F2>
