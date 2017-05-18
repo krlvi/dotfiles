@@ -114,6 +114,8 @@ nnoremap <leader>cd :cd %:p:h<CR>
 nnoremap <leader>n :lnext<CR>
 nnoremap <leader>p :lprevious<CR>
 nnoremap <leader>x :lclose<CR>
-nnoremap <leader>w <C-w>p
+nnoremap <leader>w <C-w>w
+nnoremap <CR> :nohlsearch<CR><CR>
+
 " Other
 set pastetoggle=<F2>
