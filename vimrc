@@ -104,6 +104,14 @@ set guifont=Source\ Code\ Pro:h14
 if has("gui_running")
   colorscheme solarized8_light_high
 endif
+" Set font size based on screen size.
+if has('mac')
+  if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
+    set guifont=Source\ Code\ Pro:h23
+  else
+    set guifont=Source\ Code\ Pro:h14
+  endif
+endif
 
 " ===== Key bindings =====
 " Buffer navigation
