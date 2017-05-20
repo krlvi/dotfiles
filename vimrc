@@ -101,11 +101,11 @@ highlight LineNr ctermfg=gray
 "set background=light
 syntax enable
 set guifont=Source\ Code\ Pro:h14
-if has("gui_running")
+if has("gui_running") || has("gui_vimr")
   colorscheme solarized8_light_high
 endif
 " Set font size based on screen size.
-if has('mac')
+if has("gui_running")
   if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
     set guifont=Source\ Code\ Pro:h23
   else
@@ -134,6 +134,9 @@ nnoremap <leader>p :lprevious<CR>
 nnoremap <leader>x :lclose<CR>
 nnoremap <leader>w <C-w>w
 nnoremap <CR> :nohlsearch<CR><CR>
-
+" Neovim bindings
+if has("nvim")
+  tnoremap <Esc> <C-\><C-n>
+endif
 " Other
 set pastetoggle=<F2>
