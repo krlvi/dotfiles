@@ -17,6 +17,7 @@ Plug 'tpope/vim-rails'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
   set laststatus=2
+Plug 'morhetz/gruvbox'
 
 " --- Static code analysis ---
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
@@ -28,6 +29,8 @@ Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
   nnoremap <leader>s :SyntasticCheck rubocop<CR>
+Plug 'neomake/neomake'
+  autocmd! BufWritePost * Neomake
 
 " --- Auto completion ---
 Plug 'ajh17/VimCompletesMe'
@@ -98,12 +101,12 @@ set number
 set ruler
 set scrolloff=3
 highlight LineNr ctermfg=gray
-"set background=light
 syntax enable
+highlight ColorColumn ctermbg=7
+"set termguicolors
+set background=dark
+colorscheme gruvbox 
 set guifont=Source\ Code\ Pro:h14
-if has("gui_running") || has("gui_vimr")
-  colorscheme solarized8_light_high
-endif
 " Set font size based on screen size.
 if has("gui_running")
   if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
