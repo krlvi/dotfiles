@@ -7,6 +7,8 @@ Plug 'tpope/vim-fugitive'
 " --- Language specific ---
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+Plug 'mattreduce/vim-mix'
+  nnoremap <leader>c :Mcompile<CR>
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
   let g:rails_ctags_arguments = ['$(bundle list --paths)']
@@ -45,6 +47,14 @@ Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  nnoremap <silent> <leader>f :Files<CR>
+  nnoremap <silent> <leader>b :Buffers<CR>
+  nnoremap <silent> <leader>l :BLines<CR>
+  nnoremap <silent> <leader>L :Lines<CR>
+  nnoremap <silent> <leader>c :BCommits<CR>
+  nnoremap <silent> <leader>C :Commits<CR>
+  nnoremap <silent> <leader>h :History<CR>
 Plug 'wojtekmach/vim-rename'
 
 call plug#end()
