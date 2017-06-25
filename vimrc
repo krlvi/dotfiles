@@ -43,18 +43,19 @@ Plug 'scrooloose/nerdcommenter'
 
 " --- File navigation ---
 Plug 'kien/ctrlp.vim'
+  nnoremap <silent> <leader>f :CtrlP<CR>
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  nnoremap <silent> <leader>f :Files<CR>
-  nnoremap <silent> <leader>b :Buffers<CR>
-  nnoremap <silent> <leader>l :BLines<CR>
-  nnoremap <silent> <leader>L :Lines<CR>
-  nnoremap <silent> <leader>c :BCommits<CR>
-  nnoremap <silent> <leader>C :Commits<CR>
-  nnoremap <silent> <leader>h :History<CR>
+  "nnoremap <silent> <leader>f :Files<CR>
+  "nnoremap <silent> <leader>b :Buffers<CR>
+  "nnoremap <silent> <leader>l :BLines<CR>
+  "nnoremap <silent> <leader>L :Lines<CR>
+  "nnoremap <silent> <leader>c :BCommits<CR>
+  "nnoremap <silent> <leader>C :Commits<CR>
+  "nnoremap <silent> <leader>h :History<CR>
 Plug 'wojtekmach/vim-rename'
 
 call plug#end()
@@ -122,7 +123,8 @@ if has("gui_running")
   if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
     set guifont=Source\ Code\ Pro:h23
   else
-    set guifont=Source\ Code\ Pro:h14
+    "set guifont=Source\ Code\ Pro:h14
+    set guifont=Input\ Mono:h14
   endif
 endif
 
