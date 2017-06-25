@@ -117,11 +117,10 @@ highlight ColorColumn ctermbg=7
 "set termguicolors
 set background=dark
 colorscheme gruvbox 
-set guifont=Source\ Code\ Pro:h14
 " Set font size based on screen size.
 if has("gui_running")
   if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
-    set guifont=Source\ Code\ Pro:h23
+    set guifont=Input\ Mono:h23
   else
     "set guifont=Source\ Code\ Pro:h14
     set guifont=Input\ Mono:h14
