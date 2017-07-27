@@ -1,7 +1,9 @@
 " ===== LEADER KEY =====
 let mapleader = "\<Space>"
 " ===== PLUGINS =====
-call plug#begin('~/.vim/plugged') " --- Git ---
+call plug#begin('~/.vim/plugged')
+
+" --- Git ---
 Plug 'tpope/vim-fugitive'
 
 " --- Language specific ---
@@ -40,6 +42,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/tpope-vim-abolish'
 
 " --- File navigation ---
 Plug 'kien/ctrlp.vim'
@@ -57,6 +60,10 @@ Plug 'junegunn/fzf.vim'
   "nnoremap <silent> <leader>C :Commits<CR>
   "nnoremap <silent> <leader>h :History<CR>
 Plug 'wojtekmach/vim-rename'
+
+" --- Other ---
+Plug 'rizzatti/dash.vim'
+  nnoremap <leader>d :Dash!<CR>
 
 call plug#end()
 
@@ -89,7 +96,7 @@ set cc=80
 
 " ===== WILD MODE =====
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=longest,list,full
 
 " Save all files on losing focus
 au FocusLost * :wa
@@ -154,3 +161,5 @@ if has("nvim")
 endif
 " Other
 set pastetoggle=<F2>
+map <F1> <Esc>
+imap <F1> <Esc>
