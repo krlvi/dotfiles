@@ -23,6 +23,9 @@ Plug 'itchyny/lightline.vim'
   set laststatus=2
 Plug 'morhetz/gruvbox'
 
+" --- Testing ---
+Plug 'janko-m/vim-test'
+
 " --- Static code analysis ---
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
   set statusline+=%#warningmsg#
@@ -37,7 +40,14 @@ Plug 'neomake/neomake'
   autocmd! BufWritePost * Neomake
 
 " --- Auto completion ---
-Plug 'ajh17/VimCompletesMe'
+if has("nvim")
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
+  " deoplete tab-complete
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+else
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+endif
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 Plug 'AndrewRadev/splitjoin.vim'
