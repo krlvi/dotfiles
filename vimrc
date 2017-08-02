@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 
 " --- Language specific ---
+Plug 'rust-lang/rust.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'mattreduce/vim-mix'
@@ -25,6 +26,7 @@ Plug 'morhetz/gruvbox'
 
 " --- Testing ---
 Plug 'janko-m/vim-test'
+  nnoremap <leader>t :TestFile<CR>
 
 " --- Static code analysis ---
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
@@ -37,7 +39,7 @@ Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
   let g:syntastic_check_on_wq = 0
   nnoremap <leader>s :SyntasticCheck rubocop<CR>
 Plug 'neomake/neomake'
-  autocmd! BufWritePost * Neomake
+  autocmd! BufWritePost *.ex Neomake credo
 
 " --- Auto completion ---
 if has("nvim")
