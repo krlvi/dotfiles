@@ -44,6 +44,8 @@ Plug 'neomake/neomake'
 " --- Auto completion ---
 if has("nvim")
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#auto_complete_delay = 10  " Default is 50
+  let g:deoplete#auto_refresh_delay = 10  " Default is 500
   let g:deoplete#enable_at_startup = 1
   " deoplete tab-complete
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
