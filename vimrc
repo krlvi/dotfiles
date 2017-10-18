@@ -1,10 +1,11 @@
-" ===== LEADER KEY =====
+"vim-gitR KEY =====
 let mapleader = "\<Space>"
 " ===== PLUGINS =====
 call plug#begin('~/.vim/plugged')
 
 " --- Git ---
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
 
 " --- Language specific ---
 Plug 'rust-lang/rust.vim'
