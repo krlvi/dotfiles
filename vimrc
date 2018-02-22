@@ -8,6 +8,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 
 " --- Language specific ---
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fireplace'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
