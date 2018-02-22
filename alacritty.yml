@@ -204,6 +204,11 @@ cursor_style: Block
 # Live config reload (changes require restart)
 live_config_reload: true
 
+shell:
+ program: /usr/local/bin/zsh
+ args:
+   - --login
+
 # Shell
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
