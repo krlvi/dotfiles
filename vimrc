@@ -8,7 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 
 " --- Language specific ---
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-fireplace'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -97,6 +97,8 @@ set showmode
 set showcmd
 set splitbelow
 set splitright
+set shell=zsh
+set autowrite
 
 " ===== PERFORMANCE IMPROVEMENTS =====
 set lazyredraw
@@ -152,6 +154,9 @@ if has("gui_running")
 endif
 
 " ===== Key bindings =====
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " Buffer navigation
 nnoremap <leader>l :ls<CR>:b<space>
 nnoremap <leader><TAB> :b#<CR>
