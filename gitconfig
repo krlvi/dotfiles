@@ -7,3 +7,5 @@
 	signingkey = 5427C471
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true
