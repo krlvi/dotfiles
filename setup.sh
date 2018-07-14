@@ -9,11 +9,6 @@ DOTFILES=~/dotfiles
 echo "Updating the Hosts file";
 curl $HOSTS_FILE | sudo tee -a /etc/hosts > /dev/null;
 
-if test ! -e ~/.ssh/; then
-  echo "Generating a new ssh key pair"
-  ssh-keygen -t rsa -b 4096 -C "kiril.vi@runbox.no"
-fi
-
 echo "Installing xcode command line tools";
 xcode-select --install;
 
