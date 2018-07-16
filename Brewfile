@@ -25,6 +25,7 @@ brew 'zsh-completions'
 # Lang
 cask 'java'
 brew 'python'
+brew 'pyenv'
 brew 'clojure'
 brew 'leiningen'
 brew 'go'
