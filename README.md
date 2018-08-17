@@ -36,4 +36,5 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write -g ApplePressAndHoldEnabled -bool false
 ```
