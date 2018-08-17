@@ -1,155 +1,166 @@
-"vim-gitR KEY =====
-let mapleader = "\<Space>"
-" ===== PLUGINS =====
-call plug#begin('~/.vim/plugged')
+  "vim-gitR KEY =====
+  let mapleader = "\<Space>"
+  " ===== PLUGINS =====
+  call plug#begin('~/.vim/plugged')
 
-" --- Git ---
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
+  " --- Git ---
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-git'
 
-" --- Language specific ---
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'tpope/vim-fireplace'
-Plug 'rust-lang/rust.vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-Plug 'mattreduce/vim-mix'
-  nnoremap <leader>c :Mcompile<CR>
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-  let g:rails_ctags_arguments = ['$(bundle list --paths)']
-  nnoremap <leader>r :Rake<CR>
-  nnoremap t <C-]>
+  " --- Language specific ---
+  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+  Plug 'tpope/vim-fireplace'
+  Plug 'rust-lang/rust.vim'
+  Plug 'elixir-lang/vim-elixir'
+  Plug 'slashmili/alchemist.vim'
+  Plug 'mattreduce/vim-mix'
+    nnoremap <leader>c :Mcompile<CR>
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'tpope/vim-rails'
+    let g:rails_ctags_arguments = ['$(bundle list --paths)']
+    nnoremap <leader>r :Rake<CR>
+    nnoremap t <C-]>
 
-" --- Look and feel ---
-Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim'
-  set laststatus=2
-Plug 'morhetz/gruvbox'
+  " --- Look and feel ---
+  Plug 'Yggdroot/indentLine'
+  Plug 'itchyny/lightline.vim'
+		let g:lightline = {'colorscheme': 'PaperColor'}
+    set laststatus=2
+  Plug 'morhetz/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
 
-" --- Testing ---
-Plug 'janko-m/vim-test'
-  nnoremap <leader>t :TestFile<CR>
+  " --- Testing ---
+  Plug 'janko-m/vim-test'
+    nnoremap <leader>t :TestFile<CR>
 
-" --- Static code analysis ---
-Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  nnoremap <leader>s :SyntasticCheck rubocop<CR>
-Plug 'neomake/neomake'
-  autocmd! BufWritePost *.ex Neomake credo
+  " --- Static code analysis ---
+  Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    nnoremap <leader>s :SyntasticCheck rubocop<CR>
+  Plug 'neomake/neomake'
+    autocmd! BufWritePost *.ex Neomake credo
 
-" --- Auto completion ---
-if has("nvim")
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#auto_complete_delay = 10  " Default is 50
-  let g:deoplete#auto_refresh_delay = 10  " Default is 500
-  let g:deoplete#enable_at_startup = 1
-  " deoplete tab-complete
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-else
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-endif
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-endwise'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/tpope-vim-abolish'
+  " --- Auto completion ---
+  if has("nvim")
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    let g:deoplete#auto_complete_delay = 10  " Default is 50
+    let g:deoplete#auto_refresh_delay = 10  " Default is 500
+    let g:deoplete#enable_at_startup = 1
+    " deoplete tab-complete
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  else
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+  endif
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-endwise'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/tpope-vim-abolish'
 
-" --- File navigation ---
-Plug 'kien/ctrlp.vim'
-  nnoremap <silent> <leader>f :CtrlP<CR>
-Plug 'tpope/vim-vinegar'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-  let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  "nnoremap <silent> <leader>f :Files<CR>
-  "nnoremap <silent> <leader>b :Buffers<CR>
-  "nnoremap <silent> <leader>l :BLines<CR>
-  "nnoremap <silent> <leader>L :Lines<CR>
-  "nnoremap <silent> <leader>c :BCommits<CR>
-  "nnoremap <silent> <leader>C :Commits<CR>
-  "nnoremap <silent> <leader>h :History<CR>
-Plug 'wojtekmach/vim-rename'
+  " --- File navigation ---
+  Plug 'kien/ctrlp.vim'
+    nnoremap <silent> <leader>f :CtrlP<CR>
+  Plug 'tpope/vim-vinegar'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+    let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
+    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+    "nnoremap <silent> <leader>f :Files<CR>
+    "nnoremap <silent> <leader>b :Buffers<CR>
+    "nnoremap <silent> <leader>l :BLines<CR>
+    "nnoremap <silent> <leader>L :Lines<CR>
+    "nnoremap <silent> <leader>c :BCommits<CR>
+    "nnoremap <silent> <leader>C :Commits<CR>
+    "nnoremap <silent> <leader>h :History<CR>
+  Plug 'wojtekmach/vim-rename'
 
-" --- Other ---
-Plug 'rizzatti/dash.vim'
-  nnoremap <leader>d :Dash!<CR>
+  " --- Other ---
+  Plug 'tpope/vim-speeddating'
+  Plug 'jceb/vim-orgmode'
+  Plug 'rizzatti/dash.vim'
+    nnoremap <leader>d :Dash!<CR>
 
-call plug#end()
+  call plug#end()
 
-" ===== SENSIBLE DEFAULTS =====
-set nocompatible
-set modelines=0
-set visualbell
-set directory=/tmp
-set backupdir=/tmp
-set backspace=indent,eol,start
-set hidden
-set encoding=utf-8
-set showmode 
-set showcmd
-set splitbelow
-set splitright
-set shell=zsh
-set autowrite
+  " ===== SENSIBLE DEFAULTS =====
+  set nocompatible
+  set modelines=0
+  set visualbell
+  set directory=/tmp
+  set backupdir=/tmp
+  set backspace=indent,eol,start
+  set hidden
+  set encoding=utf-8
+  set showmode
+  set showcmd
+  set splitbelow
+  set splitright
+  set shell=zsh
+  set autowrite
 
-" ===== PERFORMANCE IMPROVEMENTS =====
-set lazyredraw
-set ttyfast
-set timeoutlen=1000 ttimeoutlen=0
+  " wrap long lines in quickfix
+  augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
+  augroup END
 
-" ==== INDENTATION AND TABS =====
-set autoindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set cc=80
+  " ===== PERFORMANCE IMPROVEMENTS =====
+  set lazyredraw
+  set ttyfast
+  set timeoutlen=1000 ttimeoutlen=0
 
-" ===== WILD MODE =====
-set wildmenu
-set wildmode=longest,list,full
+  " ==== INDENTATION AND TABS =====
+  set autoindent
+  set tabstop=2
+  set shiftwidth=2
+  set softtabstop=2
+  set expandtab
+  set cc=80
 
-" Save all files on losing focus
-au FocusLost * :wa
-autocmd BufLeave,FocusLost * silent! wall
-autocmd FileType c,cpp,java,php,rb,ex,exs,rbs,rake autocmd BufWritePre <buffer> %s/\s\+$//e
-autocmd BufWritePre *.rb %s/\s\+$//e
+  " ===== WILD MODE =====
+  set wildmenu
+  set wildmode=longest,list,full
 
-" ===== SEARCH AND REPLACE =====
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
+  " Save all files on losing focus
+  au FocusLost * :wa
+  autocmd BufLeave,FocusLost * silent! wall
+  autocmd FileType c,cpp,java,php,rb,ex,exs,rbs,rake autocmd BufWritePre <buffer> %s/\s\+$//e
+  autocmd BufWritePre *.rb %s/\s\+$//e
 
-" ===== Look and feel =====
-set t_Co=256
-set number
-"set cursorline
-set ruler
-set scrolloff=3
-highlight LineNr ctermfg=gray
-syntax enable
-highlight ColorColumn ctermbg=7
-"set termguicolors
-set background=dark
-colorscheme gruvbox 
+  " ===== SEARCH AND REPLACE =====
+  set ignorecase
+  set smartcase
+  set gdefault
+  set incsearch
+  set showmatch
+  set hlsearch
+
+  " ===== Look and feel =====
+  set t_Co=256
+  set number
+  "set cursorline
+  set ruler
+  set scrolloff=3
+  highlight LineNr ctermfg=gray
+  syntax enable
+  highlight ColorColumn ctermbg=7
+  "set termguicolors
+set background=light
+colorscheme PaperColor 
 " Set font size based on screen size.
 if has("gui_running")
   if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
     set guifont=Input\ Mono:h23
   else
     "set guifont=Source\ Code\ Pro:h14
-    set guifont=Input\ Mono:h14
+    set guifont=SF\ Mono:h14
+    "set guifont=Input\ Mono:h14
   endif
 endif
 
@@ -158,6 +169,10 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " Buffer navigation
+nnoremap <Leader>o :only<CR>
+nnoremap <Leader>e :Explore<CR>
+let g:netrw_liststyle = 3
+let g:netrw_banner = 1
 nnoremap <leader>l :ls<CR>:b<space>
 nnoremap <leader><TAB> :b#<CR>
 nnoremap <Leader>1 :1b<CR>
