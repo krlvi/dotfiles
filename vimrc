@@ -6,9 +6,20 @@
   " --- Git ---
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-git'
+  Plug 'airblade/vim-gitgutter'
 
   " --- Language specific ---
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+  let g:go_fmt_autosave = 1
+  let g:go_fmt_fail_silently = 1
+  let g:go_fmt_command = "goimports"
+  let g:go_auto_type_info = 1
+  let g:go_echo_command_info = 1
+  let g:go_gocode_autobuild = 1
+  " let g:go_auto_sameids = 1
+  let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+  set updatetime=50
+  Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-fireplace'
   Plug 'rust-lang/rust.vim'
   Plug 'elixir-lang/vim-elixir'
@@ -29,10 +40,6 @@
   Plug 'morhetz/gruvbox'
   Plug 'NLKNguyen/papercolor-theme'
 
-  " --- Testing ---
-  Plug 'janko-m/vim-test'
-    nnoremap <leader>t :TestFile<CR>
-
   " --- Static code analysis ---
   Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
     set statusline+=%#warningmsg#
@@ -42,21 +49,15 @@
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
-    nnoremap <leader>s :SyntasticCheck rubocop<CR>
   Plug 'neomake/neomake'
     autocmd! BufWritePost *.ex Neomake credo
 
   " --- Auto completion ---
-  if has("nvim")
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#auto_complete_delay = 10  " Default is 50
-    let g:deoplete#auto_refresh_delay = 10  " Default is 500
-    let g:deoplete#enable_at_startup = 1
-    " deoplete tab-complete
-    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-  else
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-  endif
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-go', { 'do': 'make'} 
+  let g:deoplete#auto_complete_delay = 10  " Default is 50
+  let g:deoplete#auto_refresh_delay = 10  " Default is 500
+  let g:deoplete#enable_at_startup = 1
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-endwise'
   Plug 'AndrewRadev/splitjoin.vim'
@@ -64,8 +65,7 @@
   Plug 'tpope/tpope-vim-abolish'
 
   " --- File navigation ---
-  Plug 'kien/ctrlp.vim'
-    nnoremap <silent> <leader>f :CtrlP<CR>
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-vinegar'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -165,9 +165,25 @@ if has("gui_running")
 endif
 
 " ===== Key bindings =====
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>n  <Plug>(go-rename)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 " Buffer navigation
 nnoremap <Leader>o :only<CR>
 nnoremap <Leader>e :Explore<CR>
