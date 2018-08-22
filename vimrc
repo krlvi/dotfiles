@@ -20,6 +20,8 @@
   let g:go_metalinter_autosave_enabled = ['vet', 'golint']
   set updatetime=50
   Plug 'SirVer/ultisnips'
+  Plug 'w0rp/ale'
+  let g:ale_sign_column_always = 1
   Plug 'tpope/vim-fireplace'
   Plug 'rust-lang/rust.vim'
   Plug 'elixir-lang/vim-elixir'
@@ -53,11 +55,6 @@
     autocmd! BufWritePost *.ex Neomake credo
 
   " --- Auto completion ---
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-go', { 'do': 'make'} 
-  let g:deoplete#auto_complete_delay = 10  " Default is 50
-  let g:deoplete#auto_refresh_delay = 10  " Default is 500
-  let g:deoplete#enable_at_startup = 1
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-endwise'
   Plug 'AndrewRadev/splitjoin.vim'
