@@ -59,19 +59,14 @@
   Plug 'tpope/tpope-vim-abolish'
 
   " --- File navigation ---
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-vinegar'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
     let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
     let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-    "nnoremap <silent> <leader>f :Files<CR>
-    "nnoremap <silent> <leader>b :Buffers<CR>
-    "nnoremap <silent> <leader>l :BLines<CR>
-    "nnoremap <silent> <leader>L :Lines<CR>
-    "nnoremap <silent> <leader>c :BCommits<CR>
-    "nnoremap <silent> <leader>C :Commits<CR>
-    "nnoremap <silent> <leader>h :History<CR>
+    nnoremap <silent> <C-p> :Files<CR>
+    nnoremap <silent> <C-l> :Buffers<CR>
+    nnoremap <silent> <C-g> :Ag<CR>
   Plug 'wojtekmach/vim-rename'
 
   " --- Other ---
@@ -167,21 +162,69 @@ function! s:build_go_files()
   endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>n  <Plug>(go-rename)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-" Buffer navigation
-nnoremap <leader>l :ls<CR>:b<space>
-nnoremap <Leader>L :Explore<CR>
-nnoremap <leader><TAB> :b#<CR>
+" Leader keys
+" Q
+autocmd FileType go nmap <leader>q  <Plug>(go-callstack)
+" W
 nnoremap <leader>w <C-w>w
 nnoremap <Leader>W :only<CR>
+" E
+autocmd FileType go nmap <leader>e  <Plug>(go-describe)
+" R
+autocmd FileType go nmap <leader>r  <Plug>(go-rename)
+" T
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+" Y
+nnoremap <Leader>y :GoKeyify<CR>
+" U
+nnoremap <Leader>u :GoFillStruct<CR>
+" I
+autocmd FileType go nmap <leader>i  <Plug>(go-implements)
+nnoremap <Leader>I :GoImpl<CR>
+" O
+autocmd FileType go nmap <leader>o <Plug>(go-iferr)
+" P
+autocmd FileType go nmap <leader>pc  <Plug>(go-callers)
+autocmd FileType go nmap <leader>pt  <Plug>(go-callees)
+autocmd FileType go nmap <leader>pv  <Plug>(go-pointsto)
+nnoremap <Leader>pe :GoWhicherrs<CR>
+autocmd FileType go nmap <leader>pp  <Plug>(go-channelpeers)
+" A
+autocmd FileType go nmap <leader>a  <Plug>(go-alternate-edit)
+" S
+autocmd FileType go nmap <leader>s  <Plug>(go-def-stack)
+autocmd FileType go nmap <leader>S  <Plug>(go-def-stack-clear)
+" D
+autocmd FileType go nmap <leader>d  <Plug>(go-doc)
+autocmd FileType go nmap <leader>D  <Plug>(go-doc-browser)
+" F
+nnoremap <Leader>f :GoDecls<CR>
+nnoremap <Leader>F :GoDeclsDir<CR>
+" G
+" H
+autocmd FileType go nmap <leader>h  <Plug>(go-referrers)
+nnoremap <Leader>H :GoSameIdsToggle<CR>
+" J
+" K
+" L
+nnoremap <leader>l :ls<CR>:b<space>
+nnoremap <Leader>L :Explore<CR>
+" Z
+" X
+" C
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+nnoremap <Leader>C :GoCoverageBrowser<CR>
+" V
+autocmd FileType go nmap <leader>v  <Plug>(go-freevars)
+" B
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>B  <Plug>(go-run)
+" N
+autocmd FileType go nmap <leader>n  <Plug>(go-metalinter)
+" M
+
+" Buffer navigation
+nnoremap <leader><TAB> :b#<CR>
 let g:netrw_liststyle = 3
 let g:netrw_banner = 1
 nnoremap <CR> :nohlsearch<CR><CR>
