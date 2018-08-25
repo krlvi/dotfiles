@@ -25,12 +25,7 @@
   Plug 'elixir-lang/vim-elixir'
   Plug 'slashmili/alchemist.vim'
   Plug 'mattreduce/vim-mix'
-    nnoremap <leader>c :Mcompile<CR>
   Plug 'vim-ruby/vim-ruby'
-  Plug 'tpope/vim-rails'
-    let g:rails_ctags_arguments = ['$(bundle list --paths)']
-    nnoremap <leader>r :Rake<CR>
-    nnoremap t <C-]>
 
   " --- Look and feel ---
   Plug 'Yggdroot/indentLine'
