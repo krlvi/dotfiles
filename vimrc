@@ -78,8 +78,6 @@
   " --- Other ---
   Plug 'tpope/vim-speeddating'
   Plug 'jceb/vim-orgmode'
-  Plug 'rizzatti/dash.vim'
-    nnoremap <leader>d :Dash!<CR>
 
   call plug#end()
 
