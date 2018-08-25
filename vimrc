@@ -178,28 +178,13 @@ autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit'
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 " Buffer navigation
-nnoremap <Leader>o :only<CR>
-nnoremap <Leader>e :Explore<CR>
+nnoremap <leader>l :ls<CR>:b<space>
+nnoremap <Leader>L :Explore<CR>
+nnoremap <leader><TAB> :b#<CR>
+nnoremap <leader>w <C-w>w
+nnoremap <Leader>W :only<CR>
 let g:netrw_liststyle = 3
 let g:netrw_banner = 1
-nnoremap <leader>l :ls<CR>:b<space>
-nnoremap <leader><TAB> :b#<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
-" Location list navigation
-nnoremap <leader>cd :cd %:p:h<CR>
-nnoremap <leader>n :lnext<CR>
-nnoremap <leader>p :lprevious<CR>
-nnoremap <leader>x :lclose<CR>
-nnoremap <leader>w <C-w>w
 nnoremap <CR> :nohlsearch<CR><CR>
 " Neovim bindings
 if has("nvim")
