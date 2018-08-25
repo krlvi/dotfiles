@@ -19,7 +19,6 @@
   " let g:go_auto_sameids = 1
   let g:go_metalinter_autosave_enabled = ['vet', 'golint']
   set updatetime=50
-  Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-fireplace'
   Plug 'rust-lang/rust.vim'
   Plug 'elixir-lang/vim-elixir'
