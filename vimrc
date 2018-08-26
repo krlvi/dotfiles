@@ -17,7 +17,6 @@
   let g:go_auto_type_info = 1
   let g:go_echo_command_info = 1
   let g:go_gocode_autobuild = 1
-  " let g:go_auto_sameids = 1
   let g:go_metalinter_autosave_enabled = ['vet', 'golint']
   set updatetime=50
   Plug 'tpope/vim-fireplace'
@@ -33,10 +32,6 @@
     set laststatus=2
   Plug 'morhetz/gruvbox'
   Plug 'NLKNguyen/papercolor-theme'
-
-  " --- Static code analysis ---
-  Plug 'neomake/neomake'
-    autocmd! BufWritePost *.ex Neomake credo
 
   " --- Auto completion ---
   Plug 'jiangmiao/auto-pairs'
