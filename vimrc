@@ -1,124 +1,124 @@
-  "vim-gitR KEY =====
-  let mapleader = "\<Space>"
-  " ===== PLUGINS =====
-  call plug#begin('~/.vim/plugged')
+"vim-gitR KEY =====
+let mapleader = "\<Space>"
+" ===== PLUGINS =====
+call plug#begin('~/.vim/plugged')
 
-  " --- Git ---
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-git'
-  Plug 'airblade/vim-gitgutter'
+" --- Git ---
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'airblade/vim-gitgutter'
 
-  " --- Language specific ---
-  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-  let g:go_list_type = "quickfix"
-  let g:go_fmt_autosave = 1
-  let g:go_fmt_fail_silently = 1
-  let g:go_fmt_command = "goimports"
-  let g:go_auto_type_info = 1
-  let g:go_echo_command_info = 1
-  let g:go_gocode_autobuild = 1
-  let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-  set updatetime=50
-  Plug 'tpope/vim-fireplace'
-  Plug 'rust-lang/rust.vim'
-  Plug 'elixir-lang/vim-elixir'
-  Plug 'slashmili/alchemist.vim'
-  Plug 'mattreduce/vim-mix'
-  Plug 'vim-ruby/vim-ruby'
+" --- Language specific ---
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+let g:go_list_type = "quickfix"
+let g:go_fmt_autosave = 1
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:go_echo_command_info = 1
+let g:go_gocode_autobuild = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+set updatetime=50
+Plug 'tpope/vim-fireplace'
+Plug 'rust-lang/rust.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'mattreduce/vim-mix'
+Plug 'vim-ruby/vim-ruby'
 
-  " --- Look and feel ---
-  Plug 'itchyny/lightline.vim'
-		let g:lightline = {'colorscheme': 'PaperColor'}
-    set laststatus=2
-  Plug 'morhetz/gruvbox'
-  Plug 'NLKNguyen/papercolor-theme'
+" --- Look and feel ---
+Plug 'itchyny/lightline.vim'
+let g:lightline = {'colorscheme': 'PaperColor'}
+set laststatus=2
+Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 
-  " --- Auto completion ---
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'tpope/vim-endwise'
-  Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'scrooloose/nerdcommenter'
+" --- Auto completion ---
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'scrooloose/nerdcommenter'
 
-  " --- File navigation ---
-  Plug 'tpope/vim-vinegar'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-    let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
-    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-    nnoremap <silent> <C-p> :Files<CR>
-    nnoremap <silent> <C-l> :Buffers<CR>
-    nnoremap <silent> <C-g> :Ag<CR>
-  Plug 'wojtekmach/vim-rename'
+" --- File navigation ---
+Plug 'tpope/vim-vinegar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-l> :Buffers<CR>
+nnoremap <silent> <C-g> :Ag<CR>
+Plug 'wojtekmach/vim-rename'
 
-  " --- Other ---
-  Plug 'tpope/vim-speeddating'
-  Plug 'jceb/vim-orgmode'
+" --- Other ---
+Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode'
 
-  call plug#end()
+call plug#end()
 
-  " ===== SENSIBLE DEFAULTS =====
-  set nocompatible
-  set modelines=0
-  set visualbell
-  set directory=/tmp
-  set backupdir=/tmp
-  set backspace=indent,eol,start
-  set hidden
-  set encoding=utf-8
-  set showmode
-  set showcmd
-  set splitbelow
-  set splitright
-  set shell=zsh
-  set autowrite
+" ===== SENSIBLE DEFAULTS =====
+set nocompatible
+set modelines=0
+set visualbell
+set directory=/tmp
+set backupdir=/tmp
+set backspace=indent,eol,start
+set hidden
+set encoding=utf-8
+set showmode
+set showcmd
+set splitbelow
+set splitright
+set shell=zsh
+set autowrite
 
-  " wrap long lines in quickfix
-  augroup quickfix
-    autocmd!
-    autocmd FileType qf setlocal wrap
-  augroup END
+" wrap long lines in quickfix
+augroup quickfix
+  autocmd!
+  autocmd FileType qf setlocal wrap
+augroup END
 
-  " ===== PERFORMANCE IMPROVEMENTS =====
-  set lazyredraw
-  set ttyfast
-  set timeoutlen=1000 ttimeoutlen=0
+" ===== PERFORMANCE IMPROVEMENTS =====
+set lazyredraw
+set ttyfast
+set timeoutlen=1000 ttimeoutlen=0
 
-  " ==== INDENTATION AND TABS =====
-  set autoindent
-  set tabstop=2
-  set shiftwidth=2
-  set softtabstop=2
-  set expandtab
-  set cc=80
+" ==== INDENTATION AND TABS =====
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set cc=80
 
-  " ===== WILD MODE =====
-  set wildmenu
-  set wildmode=longest,list,full
+" ===== WILD MODE =====
+set wildmenu
+set wildmode=longest,list,full
 
-  " Save all files on losing focus
-  au FocusLost * :wa
-  autocmd BufLeave,FocusLost * silent! wall
-  autocmd FileType c,cpp,java,php,rb,ex,exs,rbs,rake autocmd BufWritePre <buffer> %s/\s\+$//e
-  autocmd BufWritePre *.rb %s/\s\+$//e
+" Save all files on losing focus
+au FocusLost * :wa
+autocmd BufLeave,FocusLost * silent! wall
+autocmd FileType c,cpp,java,php,rb,ex,exs,rbs,rake autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd BufWritePre *.rb %s/\s\+$//e
 
-  " ===== SEARCH AND REPLACE =====
-  set ignorecase
-  set smartcase
-  set gdefault
-  set incsearch
-  set showmatch
-  set hlsearch
+" ===== SEARCH AND REPLACE =====
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
 
-  " ===== Look and feel =====
-  set t_Co=256
-  set number
-  "set cursorline
-  set ruler
-  set scrolloff=3
-  highlight LineNr ctermfg=gray
-  syntax enable
-  highlight ColorColumn ctermbg=7
-  "set termguicolors
+" ===== Look and feel =====
+set t_Co=256
+set number
+"set cursorline
+set ruler
+set scrolloff=3
+highlight LineNr ctermfg=gray
+syntax enable
+highlight ColorColumn ctermbg=7
+"set termguicolors
 set background=light
 colorscheme PaperColor 
 
