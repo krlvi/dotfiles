@@ -38,7 +38,6 @@
   Plug 'tpope/vim-endwise'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'tpope/tpope-vim-abolish'
 
   " --- File navigation ---
   Plug 'tpope/vim-vinegar'
