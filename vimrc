@@ -10,6 +10,7 @@
 
   " --- Language specific ---
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+  let g:go_list_type = "quickfix"
   let g:go_fmt_autosave = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
@@ -163,65 +164,144 @@ function! s:build_go_files()
 endfunction
 
 " Leader keys
+
 " Q
-autocmd FileType go nmap <leader>q  <Plug>(go-callstack)
+
+"q Show how function is reached :GoCallstack
+autocmd FileType go nmap <leader>q <Plug>(go-callstack)
+
 " W
+
+"w Alternwate window splits
 nnoremap <leader>w <C-w>w
-nnoremap <Leader>W :only<CR>
+"W Only one active window nnoremap <Leader>W :only<CR>
+
 " E
-autocmd FileType go nmap <leader>e  <Plug>(go-describe)
+
+"e Generate error handling :GoIfErr
+autocmd FileType go nmap <leader>e <Plug>(go-iferr)
+
 " R
-autocmd FileType go nmap <leader>r  <Plug>(go-rename)
+
+"r Rename :GoRename[!] [to]
+autocmd FileType go nmap <leader>r <Plug>(go-rename)
+
 " T
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+"t Test function :GoTestFunc[!] [expand]
+autocmd FileType go nmap <leader>t <Plug>(go-test-func)
+"T Test file :GoTest[!] [expand] autocmd FileType go nmap <leader>T <Plug>(go-test)
+
 " Y
+
+"y Keyify struct literals :GoKeyify
 nnoremap <Leader>y :GoKeyify<CR>
+
 " U
+
+"u Fill struct with defaults :GoFillStruct
 nnoremap <Leader>u :GoFillStruct<CR>
+
 " I
-autocmd FileType go nmap <leader>i  <Plug>(go-implements)
+
+"i List interfaces implemented :GoImplements
+autocmd FileType go nmap <leader>i <Plug>(go-implements)
+"I Stub interface methods :GoImpl [receiver] [interface]
 nnoremap <Leader>I :GoImpl<CR>
+
 " O
-autocmd FileType go nmap <leader>o <Plug>(go-iferr)
+
 " P
-autocmd FileType go nmap <leader>pc  <Plug>(go-callers)
-autocmd FileType go nmap <leader>pt  <Plug>(go-callees)
-autocmd FileType go nmap <leader>pv  <Plug>(go-pointsto)
+
+"p c Possible callers of a function :GoCallers
+autocmd FileType go nmap <leader>pc <Plug>(go-callers)
+"p t Possible call targets for a type :GoCallees autocmd FileType go nmap <leader>pt <Plug>(go-callees)
+"p v Possible vars of a pointer :GoPointsTo autocmd FileType go nmap <leader>pv <Plug>(go-pointsto)
+"p e Possible error types of an error :GoWhicherrs
 nnoremap <Leader>pe :GoWhicherrs<CR>
-autocmd FileType go nmap <leader>pp  <Plug>(go-channelpeers)
+"p c Channel peers :GoChannelPeers autocmd FileType go nmap <leader>pp <Plug>(go-channelpeers)
+
 " A
-autocmd FileType go nmap <leader>a  <Plug>(go-alternate-edit)
+
+"a Alternate test/implementation :GoAlternate[!]
+autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
+
 " S
-autocmd FileType go nmap <leader>s  <Plug>(go-def-stack)
-autocmd FileType go nmap <leader>S  <Plug>(go-def-stack-clear)
+
+"s Describe type or identifier :GoDescribe
+autocmd FileType go nmap <leader>s <Plug>(go-describe)
+
 " D
-autocmd FileType go nmap <leader>d  <Plug>(go-doc)
-autocmd FileType go nmap <leader>D  <Plug>(go-doc-browser)
+
+"d Show doc :GoDoc [word]
+autocmd FileType go nmap <leader>d <Plug>(go-doc)
+"D Browse doc :GoDocBrowser [word]
+autocmd FileType go nmap <leader>D <Plug>(go-doc-browser)
+
 " F
+
+"f Show all functions and types in file :GoDecls [file]
 nnoremap <Leader>f :GoDecls<CR>
+"F Show all functions and types in directory :GoDeclsDir [dir]
 nnoremap <Leader>F :GoDeclsDir<CR>
+
 " G
+
+"g Show definition jump stack :GoDefStack [number]
+autocmd FileType go nmap <leader>g <Plug>(go-def-stack)
+"G Clear definition jump stack :GoDefStackClear
+autocmd FileType go nmap <leader>G <Plug>(go-def-stack-clear)
+
 " H
-autocmd FileType go nmap <leader>h  <Plug>(go-referrers)
+
+"h Show all identifiers referring to the object :GoReferrers
+autocmd FileType go nmap <leader>h <Plug>(go-referrers)
+"H Toggle highlight same identifiers :GoSameIdsToggle
 nnoremap <Leader>H :GoSameIdsToggle<CR>
+
 " J
+
 " K
+
 " L
+
+"l List buffers
 nnoremap <leader>l :ls<CR>:b<space>
+"L List files
 nnoremap <Leader>L :Explore<CR>
+
 " Z
+
 " X
+
+"w Close window split
+nnoremap <leader>x <C-w>c
+
 " C
+
+"c Toggle coverage :GoCoverageToggle[!] [options]
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+"C Browse coverage :GoCoverageBrowser[!] [options]
 nnoremap <Leader>C :GoCoverageBrowser<CR>
+
 " V
-autocmd FileType go nmap <leader>v  <Plug>(go-freevars)
+
+"v Show free variables in selection :GoFreevars
+autocmd FileType go nmap <leader>v <Plug>(go-freevars)
+
 " B
+
+"b Build :GoBuild[!] [expand] :GoTestCompile[!] [expand]
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>B  <Plug>(go-run)
+"B Run :GoRun[!] [expand]
+autocmd FileType go nmap <leader>B <Plug>(go-run)
+
 " N
-autocmd FileType go nmap <leader>n  <Plug>(go-metalinter)
+
 " M
+
+"m Meta linter :GoMetaLinter [path]
+autocmd FileType go nmap <leader>M <Plug>(go-metalinter)
 
 " Buffer navigation
 nnoremap <leader><TAB> :b#<CR>
