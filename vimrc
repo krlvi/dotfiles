@@ -180,6 +180,8 @@ autocmd FileType go nmap <leader>i <Plug>(go-implements)
 nnoremap <Leader>I :GoImpl<CR>
 
 " O
+"o Open file explorer
+nnoremap <Leader>o :Explore<CR>
 
 " P
 
@@ -237,8 +239,6 @@ nnoremap <Leader>H :GoSameIdsToggle<CR>
 
 "l List buffers
 nnoremap <leader>l :ls<CR>:b<space>
-"L List files
-nnoremap <Leader>L :Explore<CR>
 
 " Z
 
