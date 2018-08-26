@@ -121,16 +121,6 @@
   "set termguicolors
 set background=light
 colorscheme PaperColor 
-" Set font size based on screen size.
-if has("gui_running")
-  if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
-    set guifont=Input\ Mono:h23
-  else
-    "set guifont=Source\ Code\ Pro:h14
-    set guifont=SF\ Mono:h14
-    "set guifont=Input\ Mono:h14
-  endif
-endif
 
 " ===== Key bindings =====
 " run :GoBuild or :GoTestCompile based on the go file
