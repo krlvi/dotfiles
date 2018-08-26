@@ -35,23 +35,10 @@
   Plug 'NLKNguyen/papercolor-theme'
 
   " --- Static code analysis ---
-  Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
   Plug 'neomake/neomake'
     autocmd! BufWritePost *.ex Neomake credo
 
   " --- Auto completion ---
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  "Plug 'zchee/deoplete-go', { 'do': 'make'} 
-  "let g:deoplete#auto_complete_delay = 10  " Default is 50
-  "let g:deoplete#auto_refresh_delay = 10  " Default is 500
-  "let g:deoplete#enable_at_startup = 1
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-endwise'
   Plug 'AndrewRadev/splitjoin.vim'
