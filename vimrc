@@ -28,7 +28,6 @@
   Plug 'vim-ruby/vim-ruby'
 
   " --- Look and feel ---
-  Plug 'Yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
 		let g:lightline = {'colorscheme': 'PaperColor'}
     set laststatus=2
