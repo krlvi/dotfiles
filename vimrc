@@ -53,6 +53,7 @@ Plug 'wojtekmach/vim-rename'
 " --- Other ---
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
