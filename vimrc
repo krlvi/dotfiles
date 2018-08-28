@@ -72,6 +72,7 @@ set splitbelow
 set splitright
 set shell=zsh
 set autowrite
+set clipboard=unnamed
 
 " wrap long lines in quickfix
 augroup quickfix
