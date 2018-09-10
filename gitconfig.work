@@ -1,0 +1,13 @@
+[core]
+	autocrlf = input
+	editor = vim
+[user]
+	name = Kiril Videlov
+	email = kiril.videlov@tink.se
+	signingkey = ACC6BC6A
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[color]
+	ui = auto
