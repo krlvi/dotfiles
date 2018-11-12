@@ -28,7 +28,12 @@ Plug 'vim-ruby/vim-ruby'
 
 " --- Look and feel ---
 Plug 'itchyny/lightline.vim'
-let g:lightline = {'colorscheme': 'PaperColor'}
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+      \ }
+      \ }
 set laststatus=2
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
