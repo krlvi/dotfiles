@@ -57,7 +57,6 @@ Plug 'wojtekmach/vim-rename'
 
 " --- Other ---
 Plug 'tpope/vim-speeddating'
-Plug 'jceb/vim-orgmode'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 
