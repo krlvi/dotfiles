@@ -1,2 +1,5 @@
-build --java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8
-build --disk_cache=~/.bazelcache
+build --java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8 --disk_cache=~/.bazelcache --javacopt="-source 8" --javacopt="-target 8" --color=yes --show_timestamps --keep_going --jobs 600
+startup --host_jvm_args=-XX:-UseParallelGC --host_jvm_args=-Xmx6G
+query --keep_going
+test --test_output=errors
+run --jvmopt=-Djava.net.preferIPv4Stack=true
