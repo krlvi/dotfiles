@@ -48,7 +48,7 @@ esac
 #
 
 xmodmap ~/.Xmodmap
-xset r rate 25 250
+xset r rate 250 25
 
 # day planer deamon
 # pland &
