@@ -25,18 +25,29 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'mattreduce/vim-mix'
 Plug 'vim-ruby/vim-ruby'
+Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+Plug 'rust-lang/rust.vim'
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
 
 " --- Look and feel ---
-Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
-      \ }
-      \ }
+" Plug 'itchyny/lightline.vim'
+" let g:lightline = {
+"       \ 'colorscheme': 'PaperColor',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+"       \ }
+"       \ }
 set laststatus=2
 Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 
 " --- Auto completion ---
 Plug 'jiangmiao/auto-pairs'
@@ -49,7 +60,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let g:fzf_launcher = "~/opt/dotfiles/scripts/fzf_launcher.sh %s"
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg -l ""'
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-l> :Buffers<CR>
 nnoremap <silent> <C-g> :Ag<CR>
@@ -58,7 +69,13 @@ Plug 'wojtekmach/vim-rename'
 " --- Other ---
 Plug 'tpope/vim-speeddating'
 Plug 'majutsushi/tagbar'
+let g:tagbar_left=1
+nnoremap <silent> <F9> :TagbarToggle<CR>
 Plug 'christoomey/vim-tmux-navigator'
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
 call plug#end()
 
@@ -77,7 +94,7 @@ set splitbelow
 set splitright
 set shell=zsh
 set autowrite
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " wrap long lines in quickfix
 augroup quickfix
@@ -124,10 +141,10 @@ set ruler
 set scrolloff=3
 highlight LineNr ctermfg=gray
 syntax enable
-highlight ColorColumn ctermbg=7
+highlight ColorColumn ctermbg=black
 "set termguicolors
-set background=light
-colorscheme PaperColor 
+" set background=light
+colorscheme gruvbox 
 
 " ===== Key bindings =====
 " run :GoBuild or :GoTestCompile based on the go file
@@ -272,6 +289,8 @@ autocmd FileType go nmap <leader>v <Plug>(go-freevars)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 "B Run :GoRun[!] [expand]
 autocmd FileType go nmap <leader>B <Plug>(go-run)
+
+autocmd FileType rust nmap <leader>b :Cargo run<CR>
 
 " N
 
