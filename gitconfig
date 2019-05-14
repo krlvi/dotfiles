@@ -1,12 +1,12 @@
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim
 [user]
 	name = Kiril Videlov
 	email = kiril.vi@runbox.no
 	signingkey = 5427C471
 [commit]
-	gpgsign = true
+  gpgsign = true
 [pull]
 	rebase = true
 [color]
