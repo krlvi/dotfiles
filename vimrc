@@ -40,6 +40,9 @@ let g:deoplete#enable_at_startup = 1
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'mattreduce/vim-mix'
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+Plug 'google/vim-codefmt'
 Plug 'vim-ruby/vim-ruby'
 " Plug 'vim-syntastic/syntastic'
 " set statusline+=%#warningmsg#
@@ -55,6 +58,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 Plug 'rust-lang/rust.vim'
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'jrozner/vim-antlr'
+Plug 'vim-scripts/gnuplot.vim'
 
 " --- Look and feel ---
 " Plug 'itchyny/lightline.vim'
