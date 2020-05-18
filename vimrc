@@ -20,6 +20,7 @@ let g:go_gocode_autobuild = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 set updatetime=50
 Plug 'tpope/vim-fireplace'
+Plug 'alaviss/nim.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 let g:racer_cmd = "/home/kiril/.cargo/bin/racer"
@@ -61,6 +62,11 @@ Plug 'rust-lang/rust.vim'
 Plug 'jrozner/vim-antlr'
 Plug 'vim-scripts/gnuplot.vim'
 
+Plug 'mhinz/vim-startify'
+Plug 'justinmk/vim-sneak'
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+
 " --- Look and feel ---
 " Plug 'itchyny/lightline.vim'
 " let g:lightline = {
@@ -70,8 +76,9 @@ Plug 'vim-scripts/gnuplot.vim'
 "       \ }
 "       \ }
 set laststatus=2
+set mouse=a
 Plug 'morhetz/gruvbox'
-" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyun/papercolor-theme'
 
 " --- Auto completion ---
 Plug 'jiangmiao/auto-pairs'
@@ -133,7 +140,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " ==== INDENTATION AND TABS =====
 set autoindent
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set softtabstop=2
 set expandtab
